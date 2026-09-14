@@ -7,63 +7,9 @@
 </head>
 <body>
 
-<div class="container">
-    <h1>Receptkereső</h1>
-
-    <label>Hozzávalók (vesszővel elválasztva):</label>
-    <div class="input-row">
-        <input id="hozzavalokInput" type="text" placeholder="pl: tojás, liszt, tej">
-        <button onclick="kereses()">Keresés</button>
-    </div>
-    <h2>Találatok</h2>
-    <div id="talalatok"></div>
-</div>
-
+    
 <script>
-    async function kereses() {
-        const input = document.getElementById("hozzavalokInput").value;
-        const hozzavalok = input.split(",").map(x => x.trim()).filter(x => x);
-
-        const div = document.getElementById("talalatok");
-        div.innerHTML = "";
-
-        if (hozzavalok.length === 0) {
-            div.innerHTML = '<p class="no-result">Adj meg legalább egy hozzávalót.</p>';
-            return;
-        }
-
-        try {
-            const response = await fetch("http://localhost:3000/kereses", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ hozzavalok })
-            });
-
-            const receptek = await response.json();
-
-            if (!receptek.length) {
-                div.innerHTML = '<p class="no-result">Nincs találat ezekre a hozzávalókra.</p>';
-                return;
-            }
-
-            receptek.forEach(r => {
-                div.innerHTML += `
-                    <div class="recept">
-                        <h3>${r.nev}</h3>
-                        <div class="meta">
-                            Idő: ${r.ido} perc · Nehézség: ${r.nehezseg}
-                        </div>
-                        <div class="hozzavalok">
-                            <b>Hozzávalók:</b> ${r.hozzavalok.join(", ")}
-                        </div>
-                    </div>
-                `;
-            });
-        } catch (e) {
-            div.innerHTML = '<p class="no-result">Hiba történt a keresés közben.</p>';
-        }
-    }
+    
 </script>
-
 </body>
 </html>
