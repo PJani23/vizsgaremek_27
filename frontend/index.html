@@ -2,14 +2,106 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <title>Cookfinder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receptkereső</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    
+<header>
+    <div class="logo">ReceptKereső</div>
+    <div class="header-buttons">
+        <button class="btn" onclick="toggleTheme()">🌙 Mód váltás</button>
+        <button class="btn">📌 Kedvencek</button>
+        <button class="btn">🛒 Bevásárlólista</button>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Mit főzzünk ma?</h1>
+    <p>Add meg a hozzávalókat, és megmutatjuk, milyen recepteket készíthetsz el.</p>
+
+    <div class="quick-buttons">
+        <div class="quick-btn">🔥 Gyors receptek</div>
+        <div class="quick-btn">🍝 Tészták</div>
+        <div class="quick-btn">🥗 Egészséges</div>
+        <div class="quick-btn">🍰 Desszertek</div>
+        <div class="quick-btn">💸 Olcsó ételek</div>
+    </div>
+</section>
+
+<main class="container">
+    <div class="search-card">
+        <label for="hozzavalokInput">Hozzávalók (vesszővel elválasztva)</label>
+        <div class="input-row">
+            <input id="hozzavalokInput" type="text" placeholder="pl: tojás, liszt, tej">
+            <button onclick="kereses()">Keresés</button>
+        </div>
+
+        <div id="talalatok"></div>
+    </div>
+
+    <h2 style="margin-top: 30px;">Kategóriák</h2>
+    <div class="categories">
+        <div class="cat-card">⏱ 10 perc alatt</div>
+        <div class="cat-card">⭐ Kezdőknek</div>
+        <div class="cat-card">🔥 Népszerű</div>
+        <div class="cat-card">🌿 Vegetáriánus</div>
+        <div class="cat-card">🍳 Reggeli</div>
+        <div class="cat-card">🍽️ Ebéd</div>
+        <div class="cat-card">🌙 Vacsora</div>
+    </div>
+</main>
+
+<footer>
+    Receptkereső – 2026
+</footer>
+
 <script>
-    
+    function toggleTheme() {
+        document.documentElement.classList.toggle("dark");
+    }
+
+    async function kereses() {
+        const input = document.getElementById("hozzavalokInput").value;
+        const hozzavalok = input.split(",").map(x => x.trim()).filter(x => x);
+
+        const div = document.getElementById("talalatok");
+        div.innerHTML = "";
+
+        if (hozzavalok.length === 0) {
+            div.innerHTML = '<p class="meta">Adj meg legalább egy hozzávalót.</p>';
+            return;
+        }
+
+        try {
+            const response = await fetch("http://localhost:3000/kereses", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ hozzavalok })
+            });
+
+            const receptek = await response.json();
+
+            if (!receptek.length) {
+                div.innerHTML = '<p class="meta">Nincs találat.</p>';
+                return;
+            }
+
+            receptek.forEach(r => {
+                div.innerHTML += `
+                    <div class="recept">
+                        <h3>${r.nev}</h3>
+                        <div class="meta">Idő: ${r.ido} perc · Nehézség: ${r.nehezseg}</div>
+                        <div><b>Hozzávalók:</b> ${r.hozzavalok.join(", ")}</div>
+                    </div>
+                `;
+            });
+        } catch (e) {
+            div.innerHTML = '<p class="meta">Hiba történt. Ellenőrizd a backend futását.</p>';
+        }
+    }
 </script>
+
 </body>
 </html>
