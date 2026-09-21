@@ -39,6 +39,8 @@ header {
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
 }
 
 .logo {
@@ -185,6 +187,7 @@ button:hover {
     padding: 14px;
     border-radius: 12px;
     transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
 }
 
 .recept:hover {
@@ -218,6 +221,51 @@ button:hover {
     color: #fff;
 }
 
+.detail-card {
+    margin-top: 30px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.detail-header {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.detail-header img {
+    width: 220px;
+    max-width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.detail-info h2 {
+    margin: 0 0 8px;
+}
+
+.detail-section {
+    margin-top: 16px;
+}
+
+.detail-section h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+.detail-section ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.detail-section li {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
 footer {
     text-align: center;
     padding: 20px;
@@ -225,7 +273,7 @@ footer {
     color: var(--muted);
 }
 
-/* MOBIL OPTIMALIZÁCIÓ */
+/* MOBIL */
 @media (max-width: 480px) {
     .hero h1 {
         font-size: 26px;
