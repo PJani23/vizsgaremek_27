@@ -12,6 +12,9 @@
       "Olajat hevítünk a serpenyőben.",
       "A tojást beleöntjük és folyamatosan keverjük.",
       "3-4 perc alatt készre sütjük."
+    ],
+    "tulajdonsag": [
+      "egyszerű"
     ]
   },
   {
@@ -26,6 +29,9 @@
       "Hozzáadunk egy csipet sót.",
       "A tésztát 10 percig pihentetjük.",
       "Olajjal kikent serpenyőben kisütjük a palacsintákat."
+    ],
+    "tulajdonsag": [
+      "egyszerű"
     ]
   },
   {
@@ -41,6 +47,9 @@
       "Hozzáadjuk a paradicsomszószt.",
       "Sózzuk, borsozzuk.",
       "A leszűrt tésztát összekeverjük a szósszal."
+    ],
+    "tulajdonsag": [
+      "olasz"
     ]
   },
   {
@@ -56,6 +65,9 @@
       "A nokedlit kifőzzük.",
       "A tojásokat felverjük és ráöntjük.",
       "Összesütjük."
+    ],
+    "tulajdonsag": [
+      "reggeli"
     ]
   },
   {
@@ -70,6 +82,9 @@
       "Olajjal meglocsoljuk.",
       "Sózzuk.",
       "200°C-on 30-35 percig sütjük."
+    ],
+    "tulajdonsag": [
+      "street"
     ]
   },
   {
@@ -86,6 +101,9 @@
       "Felöntjük vízzel.",
       "Hozzáadjuk a zöldségeket.",
       "1 órán át főzzük."
+    ],
+    "tulajdonsag": [
+      "magyar"
     ]
   },
   {
@@ -102,6 +120,9 @@
       "Felöntjük vízzel.",
       "Puhára főzzük.",
       "Tejföllel behabarjuk."
+    ],
+    "tulajdonsag": [
+      "magyar"
     ]
   },
   {
@@ -116,6 +137,10 @@
       "Sózzuk.",
       "A kenyérszeleteket belemártjuk.",
       "Olajban aranybarnára sütjük."
+    ],
+    "tulajdonsag": [
+      "egyszerű",
+      "reggeli"
     ]
   },
   {
@@ -132,6 +157,9 @@
       "Felöntjük vízzel.",
       "Fűszerezzük.",
       "40 percig főzzük."
+    ],
+    "tulajdonsag": [
+      "vegán"
     ]
   },
   {
@@ -147,6 +175,9 @@
       "A tejfölt összekeverjük a fokhagymával.",
       "Az uborkát kinyomkodjuk.",
       "Összekeverjük a tejföllel."
+    ],
+    "tulajdonsag": [
+      "egyszerű"
     ]
   }
 ]
