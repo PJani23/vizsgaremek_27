@@ -35,24 +35,13 @@
         <label for="hozzavalokInput">Hozzávalók (vesszővel elválasztva)</label>
         <div class="input-row">
             <input id="hozzavalokInput" type="text" placeholder="pl: tojás, liszt, tej">
-            <button onclick="meghivas()">Keresés</button>
+            <button onclick="rego()">Keresés</button>
         </div>
 
         <div id="talalatok"></div>
     </div>
 
     <div id="receptReszletek" class="detail-card" style="display:none;"></div>
-
-    <h2 style="margin-top: 30px;">Kategóriák</h2>
-    <div class="categories">
-        <div class="cat-card">10 perc alatt</div>
-        <div class="cat-card">Kezdőknek</div>
-        <div class="cat-card">Népszerű</div>
-        <div class="cat-card">Vegetáriánus</div>
-        <div class="cat-card">Reggeli</div>
-        <div class="cat-card">Ebéd</div>
-        <div class="cat-card">Vacsora</div>
-    </div>
 </main>
 
 <footer>
@@ -60,7 +49,93 @@
 </footer>
 
 <script>
+    // --- DARK MODE ---
+    function toggleTheme() {
+        document.documentElement.classList.toggle("dark");
+    }
 
+    // --- HELYI JSON ADATOK ---
+    const json = [
+        {
+            "nev": "Rántotta",
+            "kep": "images/rantotta.jpg",
+            "ido": 10,
+            "nehezseg": "könnyű",
+            "adag": 1,
+            "hozzavalok": ["tojás", "só", "bors", "olaj"],
+            "lepesek": [
+                "A tojásokat egy tálban felverjük.",
+                "Sózzuk, borsozzuk.",
+                "Olajat hevítünk a serpenyőben.",
+                "A tojást beleöntjük és folyamatosan keverjük.",
+                "3-4 perc alatt készre sütjük."
+            ]
+        },
+        {
+            "nev": "Palacsinta",
+            "kep": "images/palacsinta.jpg",
+            "ido": 25,
+            "nehezseg": "közepes",
+            "adag": 4,
+            "hozzavalok": ["liszt", "tojás", "tej", "cukor", "olaj", "só"],
+            "lepesek": [
+                "A lisztet, tojást, tejet és cukrot összekeverjük.",
+                "Hozzáadunk egy csipet sót.",
+                "A tésztát 10 percig pihentetjük.",
+                "Olajjal kikent serpenyőben kisütjük a palacsintákat."
+            ]
+        }
+    ];
+
+    // --- REGO FÜGGVÉNY: HELYI JSON KIÍRÁSA ---
+    function rego() {
+        const div = document.getElementById("talalatok");
+        div.innerHTML = "";
+
+        for (const e of json) {
+            div.innerHTML += `
+                <div class="recept" onclick="mutasdReceptReszletek('${e.nev}')">
+                    <h3>${e.nev}</h3>
+                    <div class="meta">Idő: ${e.ido} perc · Nehézség: ${e.nehezseg}</div>
+                    <div><b>Hozzávalók:</b> ${e.hozzavalok.join(", ")}</div>
+                </div>
+            `;
+        }
+    }
+
+    // --- RÉSZLETES NÉZET ---
+    function mutasdReceptReszletek(nev) {
+        const recept = json.find(r => r.nev === nev);
+        const detailDiv = document.getElementById("receptReszletek");
+
+        detailDiv.style.display = "block";
+
+        detailDiv.innerHTML = `
+            <div class="detail-header">
+                <img src="${recept.kep}" alt="${recept.nev}">
+                <div class="detail-info">
+                    <h2>${recept.nev}</h2>
+                    <div class="meta">Elkészítési idő: ${recept.ido} perc</div>
+                    <div class="meta">Nehézség: ${recept.nehezseg}</div>
+                    <div class="meta">Adagok száma: ${recept.adag}</div>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3>Hozzávalók</h3>
+                <ul>
+                    ${recept.hozzavalok.map(h => `<li>${h}</li>`).join("")}
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h3>Elkészítés lépései</h3>
+                <ul>
+                    ${recept.lepesek.map(l => `<li>${l}</li>`).join("")}
+                </ul>
+            </div>
+        `;
+    }
 </script>
 
 </body>
