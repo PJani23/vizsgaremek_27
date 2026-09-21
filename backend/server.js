@@ -37,9 +37,7 @@ const json = JSON.parse(
   }
 ])
 const d =  document.getElementById("talatok").innerHTML
-let a = 0
-array.forEach(json => {
-    d+=
+for (const a of json) {
     `
         <div class="recept">
             <h2>${json[a].nev}</h2>
@@ -47,7 +45,7 @@ array.forEach(json => {
             <p>${json[a].lepesek}</p>
         </div>
     `
-});
+}
 
 
 
