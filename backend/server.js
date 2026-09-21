@@ -37,7 +37,8 @@ const json = JSON.parse(
   }
 ])
 const d =  document.getElementById("talalatok").innerHTML
-for (const a of json) {
+function rego() {
+    for (const a of json) {
     `
         <div class="recept">
             <h2>${json[a].nev}</h2>
@@ -45,6 +46,7 @@ for (const a of json) {
             <p>${json[a].lepesek}</p>
         </div>
     `
+}
 }
 
 
