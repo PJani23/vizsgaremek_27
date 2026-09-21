@@ -1,7 +1,7 @@
 Készítik: Egervári Mihály Vilmos, Peigelbeck János Szilárd, Szemes Regő Bors 
 
 Koncepció:
-A felhasználó megadja, milyen hozzávalók vannak otthon, az alkalmazás pedig megkeresi azokat a recepteket, amelyek ezekből elkészíthetők.
+A felhasználó megadja, milyen hozzávalók, eszközök vannak otthon, az alkalmazás pedig megkeresi azokat a recepteket, amelyek ezekből elkészíthetők.
 A receptre kattintva pedig megjelenik:
 •	kép
 •	elkészítési idő
