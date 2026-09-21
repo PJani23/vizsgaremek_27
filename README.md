@@ -11,3 +11,4 @@ A receptre kattintva pedig megjelenik:
 •	hány adag
 •	mely hozzávalók vannak meg
 •	melyek hiányoznak
+Lehet kedvenceket beállítani, és bevásárló listát is kapsz a hiányzó elemekre, ha szeretnéd
