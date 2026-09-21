@@ -73,7 +73,9 @@
         },
         {
             "nev": "Palacsinta",
-            "kep": "images/palacsinta.jpg",
+            "kep": [
+                "", "palacsinta"
+            ],
             "ido": 25,
             "nehezseg": "közepes",
             "adag": 4,
@@ -95,6 +97,7 @@
             div.innerHTML += `
                 <div class="recept" onclick="mutasdReceptReszletek('${e.nev}')">
                     <h3>${e.nev}</h3>
+
                     <div class="meta">Idő: ${e.ido} perc · Nehézség: ${e.nehezseg}</div>
                     <div><b>Hozzávalók:</b> ${e.hozzavalok.join(", ")}</div>
                 </div>
