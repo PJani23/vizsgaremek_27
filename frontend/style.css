@@ -287,3 +287,11 @@ footer {
         text-align: center;
     }
 }
+
+
+img {
+    max-width: 90%;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    display: block;
+}
