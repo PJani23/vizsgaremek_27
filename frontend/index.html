@@ -42,6 +42,17 @@
     </div>
 
     <div id="receptReszletek" class="detail-card" style="display:none;"></div>
+
+    <h2 style="margin-top: 30px;">Kategóriák</h2>
+    <div class="categories">
+        <div class="cat-card">10 perc alatt</div>
+        <div class="cat-card">Kezdőknek</div>
+        <div class="cat-card">Népszerű</div>
+        <div class="cat-card">Vegetáriánus</div>
+        <div class="cat-card">Reggeli</div>
+        <div class="cat-card">Ebéd</div>
+        <div class="cat-card">Vacsora</div>
+    </div>
 </main>
 
 <footer>
@@ -49,10 +60,21 @@
 </footer>
 
 <script>
+<<<<<<< HEAD
+    let utolsoHozzavalok = [];
+
+=======
+>>>>>>> 031963ba2ae28b97f2708e709a296cff12c8b556
     function toggleTheme() {
         document.documentElement.classList.toggle("dark");
     }
 
+<<<<<<< HEAD
+    async function kereses() {
+        const input = document.getElementById("hozzavalokInput").value;
+        const hozzavalok = input.split(",").map(x => x.trim()).filter(x => x);
+        utolsoHozzavalok = hozzavalok;
+=======
     const json = [
         {
             "nev": "Rántotta",
@@ -84,53 +106,112 @@
             ]
         }
     ];
+>>>>>>> 031963ba2ae28b97f2708e709a296cff12c8b556
 
+<<<<<<< HEAD
+=======
     function meghivas() {
+>>>>>>> 031963ba2ae28b97f2708e709a296cff12c8b556
         const div = document.getElementById("talalatok");
+        const detailDiv = document.getElementById("receptReszletek");
         div.innerHTML = "";
+        detailDiv.style.display = "none";
+        detailDiv.innerHTML = "";
 
-        for (const e of json) {
-            div.innerHTML += `
-                <div class="recept" onclick="mutasdReceptReszletek('${e.nev}')">
-                    <h3>${e.nev}</h3>
-                    <div class="meta">Idő: ${e.ido} perc · Nehézség: ${e.nehezseg}</div>
-                    <div><b>Hozzávalók:</b> ${e.hozzavalok.join(", ")}</div>
-                </div>
-            `;
+        if (hozzavalok.length === 0) {
+            //div.innerHTML = '<p class="meta">Adj meg legalább egy hozzávalót.</p>';
+            return;
+        }
+
+        try {
+            const response = await fetch("/kereses", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ hozzavalok })
+            });
+
+            const receptek = await response.json();
+
+            if (!receptek.length) {
+                div.innerHTML = '<p class="meta">Nincs találat.</p>';
+                return;
+            }
+
+            receptek.forEach(r => {
+                const card = document.createElement("div");
+                card.className = "recept";
+                card.innerHTML = `
+                    <h3>${r.nev}</h3>
+                    <div class="meta">Idő: ${r.ido} perc · Nehézség: ${r.nehezseg}</div>
+                    <div><b>Hozzávalók:</b> ${r.hozzavalok.join(", ")}</div>
+                `;
+                card.onclick = () => mutasdReceptReszletek(r.nev);
+                div.appendChild(card);
+            });
+        } catch (e) {
+            div.innerHTML = '<p class="meta">Hiba történt. Ellenőrizd a backend futását.</p>';
         }
     }
 
+<<<<<<< HEAD
+    async function mutasdReceptReszletek(nev) {
+        try {
+            const res = await fetch(`/recept/${encodeURIComponent(nev)}`);
+            const recept = await res.json();
+=======
     function mutasdReceptReszletek(nev) {
         const recept = json.find(r => r.nev === nev);
         const detailDiv = document.getElementById("receptReszletek");
+>>>>>>> 031963ba2ae28b97f2708e709a296cff12c8b556
 
-        detailDiv.style.display = "block";
+            const detailDiv = document.getElementById("receptReszletek");
+            detailDiv.style.display = "block";
 
-        detailDiv.innerHTML = `
-            <div class="detail-header">
-                <img src="${recept.kep}" alt="${recept.nev}">
-                <div class="detail-info">
-                    <h2>${recept.nev}</h2>
-                    <div class="meta">Elkészítési idő: ${recept.ido} perc</div>
-                    <div class="meta">Nehézség: ${recept.nehezseg}</div>
-                    <div class="meta">Adagok száma: ${recept.adag}</div>
+            const megvannak = recept.hozzavalok.filter(h => utolsoHozzavalok.includes(h));
+            const hianyzok = recept.hozzavalok.filter(h => !utolsoHozzavalok.includes(h));
+
+            detailDiv.innerHTML = `
+                <div class="detail-header">
+                    <img src="${recept.kep}" alt="${recept.nev}">
+                    <div class="detail-info">
+                        <h2>${recept.nev}</h2>
+                        <div class="meta">Elkészítési idő: ${recept.ido} perc</div>
+                        <div class="meta">Nehézség: ${recept.nehezseg}</div>
+                        <div class="meta">Adagok száma: ${recept.adag}</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="detail-section">
-                <h3>Hozzávalók</h3>
-                <ul>
-                    ${recept.hozzavalok.map(h => `<li>${h}</li>`).join("")}
-                </ul>
-            </div>
+                <div class="detail-section">
+                    <h3>Hozzávalók</h3>
+                    <ul>
+                        ${recept.hozzavalok.map(h => `<li>${h}</li>`).join("")}
+                    </ul>
+                </div>
 
-            <div class="detail-section">
-                <h3>Elkészítés lépései</h3>
-                <ul>
-                    ${recept.lepesek.map(l => `<li>${l}</li>`).join("")}
-                </ul>
-            </div>
-        `;
+                <div class="detail-section">
+                    <h3>Elkészítés lépései</h3>
+                    <ul>
+                        ${recept.lepesek.map(l => `<li>${l}</li>`).join("")}
+                    </ul>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Mely hozzávalók vannak meg?</h3>
+                    ${megvannak.length
+                        ? `<ul>${megvannak.map(h => `<li>${h}</li>`).join("")}</ul>`
+                        : "<p>Ehhez a recepthez jelenleg egy hozzávaló sincs meg.</p>"}
+                </div>
+
+                <div class="detail-section">
+                    <h3>Mely hozzávalók hiányoznak?</h3>
+                    ${hianyzok.length
+                        ? `<ul>${hianyzok.map(h => `<li>${h}</li>`).join("")}</ul>`
+                        : "<p>Minden szükséges hozzávaló rendelkezésre áll.</p>"}
+                </div>
+            `;
+        } catch (e) {
+            console.error(e);
+        }
     }
 </script>
 
