@@ -36,7 +36,18 @@ const json = JSON.parse(
     ]
   }
 ])
-
+const d =  document.getElementById("talatok").innerHTML
+let a = 0
+array.forEach(json => {
+    d+=
+    `
+        <div class="recept">
+            <h2>${json[a].nev}</h2>
+            <img src="${json[a].kep}" alt="kep">
+            <p>${json[a].lepesek}</p>
+        </div>
+    `
+});
 
 
 
