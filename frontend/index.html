@@ -35,7 +35,7 @@
         <label for="hozzavalokInput">Hozzávalók (vesszővel elválasztva)</label>
         <div class="input-row">
             <input id="hozzavalokInput" type="text" placeholder="pl: tojás, liszt, tej">
-            <button onclick="rego()">Keresés</button>
+            <button onclick="meghivas()">Keresés</button>
         </div>
 
         <div id="talalatok"></div>
@@ -49,12 +49,10 @@
 </footer>
 
 <script>
-    // --- DARK MODE ---
     function toggleTheme() {
         document.documentElement.classList.toggle("dark");
     }
 
-    // --- HELYI JSON ADATOK ---
     const json = [
         {
             "nev": "Rántotta",
@@ -87,8 +85,7 @@
         }
     ];
 
-    // --- REGO FÜGGVÉNY: HELYI JSON KIÍRÁSA ---
-    function rego() {
+    function meghivas() {
         const div = document.getElementById("talalatok");
         div.innerHTML = "";
 
@@ -103,7 +100,6 @@
         }
     }
 
-    // --- RÉSZLETES NÉZET ---
     function mutasdReceptReszletek(nev) {
         const recept = json.find(r => r.nev === nev);
         const detailDiv = document.getElementById("receptReszletek");
