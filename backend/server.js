@@ -35,24 +35,3 @@ app.get("/recept/:nev", (req, res) => {
 
 app.listen(3000, () => console.log("Backend fut a 3000-es porton"));
 
-async function mutasdReceptReszletek(recept) {
-    const res = await fetch(`http://localhost:3000/recept/${encodeURIComponent(recept.nev)}`);
-    const adat = await res.json();
-
-    const div = document.getElementById("receptReszletek");
-    div.style.display = "block";
-
-    div.innerHTML = `
-        <h2>${adat.nev}</h2>
-        <img src="${adat.kep}" style="max-width:300px;border-radius:10px;">
-        <p><b>Idő:</b> ${adat.ido} perc</p>
-        <p><b>Nehézség:</b> ${adat.nehezseg}</p>
-        <p><b>Adag:</b> ${adat.adag}</p>
-
-        <h3>Hozzávalók</h3>
-        <ul>${adat.hozzavalok.map(h => `<li>${h}</li>`).join("")}</ul>
-
-        <h3>Lépések</h3>
-        <ul>${adat.lepesek.map(l => `<li>${l}</li>`).join("")}</ul>
-    `;
-}
