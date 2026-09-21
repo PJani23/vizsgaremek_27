@@ -101,6 +101,13 @@
             div.innerHTML = '<p class="meta">Hiba történt. Ellenőrizd a backend futását.</p>';
         }
     }
+     async function mutasdReceptReszletek(recept) {
+        const res = await fetch(`http://localhost:3000/recept/${encodeURIComponent(recept.nev)}`);
+        const adat = await res.json();
+
+        // Itt jeleníted meg a részletes nézetet
+        // kép, idő, nehézség, hozzávalók, lépések, adag, meglévő/hiányzó hozzávalók
+    }
 </script>
 
 </body>
