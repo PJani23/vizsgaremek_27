@@ -1,7 +1,4 @@
 :root {
-    --bg: #f5f5f7;
-    --card-bg: #ffffff;
-    --text: #222;
     --muted: #666;
     --border: #ddd;
     --primary: #ff7b3e;
@@ -27,8 +24,8 @@
 body {
     margin: 0;
     font-family: system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    background: #f5f5f7;
+    color: #222;
     transition: background 0.3s, color 0.3s;
 }
 
@@ -45,7 +42,7 @@ header {
     font-size: 24px;
     font-weight: 800;
     background: linear-gradient(90deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
+    -webkit-background-clip: #222;
     color: transparent;
 }
 
@@ -58,7 +55,7 @@ header {
 .btn {
     padding: 10px 14px;
     border-radius: 10px;
-    background: var(--card-bg);
+    background: #ffffff;
     border: 1px solid var(--border);
     cursor: pointer;
     font-size: 14px;
@@ -88,7 +85,7 @@ header {
 
 .hero p {
     margin: 0;
-    color: var(--muted);
+    color: #666;
     font-size: 15px;
 }
 
@@ -123,7 +120,7 @@ header {
 }
 
 .search-card {
-    background: var(--card-bg);
+    background: #ffffff;
     border-radius: 16px;
     padding: 20px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
@@ -133,7 +130,7 @@ header {
 label {
     font-size: 14px;
     font-weight: 600;
-    color: var(--muted);
+    color: #666;
 }
 
 .input-row {
@@ -149,8 +146,8 @@ input[type="text"] {
     font-size: 15px;
     border-radius: 10px;
     border: 1px solid var(--border);
-    background: var(--card-bg);
-    color: var(--text);
+    background: #ffffff;
+    color: #222;
 }
 
 button {
@@ -171,6 +168,18 @@ button:hover {
     background: var(--primary-dark);
     box-shadow: 0 4px 14px rgba(255,123,62,0.4);
 }
+.recept {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 14px;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.recept:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
 
 #talalatok {
     margin-top: 24px;
@@ -178,8 +187,6 @@ button:hover {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 14px;
 }
-
-
 
 .categories {
     margin-top: 30px;
@@ -189,7 +196,7 @@ button:hover {
 }
 
 .cat-card {
-    background: var(--card-bg);
+    background: #ffffff;
     border: 1px solid var(--border);
     padding: 16px;
     border-radius: 12px;
@@ -211,7 +218,7 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 13px;
-    color: var(--muted);
+    color: #666;
 }
 
 /* MOBIL OPTIMALIZÁCIÓ */
