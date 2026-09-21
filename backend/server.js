@@ -38,7 +38,8 @@ const json = JSON.parse(
 ])
 const d =  document.getElementById("talatok").innerHTML
 let a = 0
-for (const e of json) {
+function nig() {
+    for (const e of json) {
     `
         <div class="recept">
             <h2>${json[e].nev}</h2>
@@ -46,6 +47,7 @@ for (const e of json) {
             <p>${json[e].lepesek}</p>
         </div>
     `
+    }
 }
 
 
