@@ -89,19 +89,20 @@
             }
 
             receptek.forEach(r => {
-                div.innerHTML += `
-                    <div class="recept">
-                        <h3>${r.nev}</h3>
-                        <div class="meta">Idő: ${r.ido} perc · Nehézség: ${r.nehezseg}</div>
-                        <div><b>Hozzávalók:</b> ${r.hozzavalok.join(", ")}</div>
-                    </div>
-                `;
+            div.innerHTML += `
+                <div class="recept" onclick='mutasdReceptReszletek(${JSON.stringify(r)})'>
+                    <h3>${r.nev}</h3>
+                    <div class="meta">Idő: ${r.ido} perc · Nehézség: ${r.nehezseg}</div>
+                    <div><b>Hozzávalók:</b> ${r.hozzavalok.join(", ")}</div>
+                </div>
+            `;
             });
+
         } catch (e) {
             div.innerHTML = '<p class="meta">Hiba történt. Ellenőrizd a backend futását.</p>';
         }
     }
-    
+
      async function mutasdReceptReszletek(recept) {
         const res = await fetch(`http://localhost:3000/recept/${encodeURIComponent(recept.nev)}`);
         const adat = await res.json();
