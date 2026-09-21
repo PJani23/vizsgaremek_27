@@ -36,7 +36,7 @@ const json = JSON.parse(
     ]
   }
 ])
-const d =  document.getElementById("talatok").innerHTML
+const d =  document.getElementById("talalatok").innerHTML
 for (const a of json) {
     `
         <div class="recept">
