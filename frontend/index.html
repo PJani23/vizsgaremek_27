@@ -63,6 +63,51 @@
     function toggleTheme() {
         document.documentElement.classList.toggle("dark");
     }
+    async function kereses() {
+        const input = document.getElementById("hozzavalokInput").value;
+        const hozzavalok = input.split(",").map(x => x.trim()).filter(x => x);
+        utolsoHozzavalok = hozzavalok;
+
+        const div = document.getElementById("talalatok");
+        const detailDiv = document.getElementById("receptReszletek");
+        div.innerHTML = "";
+        detailDiv.style.display = "none";
+        detailDiv.innerHTML = "";
+
+        if (hozzavalok.length === 0) {
+            div.innerHTML = '<p class="meta">Adj meg legalább egy hozzávalót.</p>';
+            return;
+        }
+
+        try {
+            const response = await fetch("http://localhost:3000/kereses", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ hozzavalok })
+            });
+
+            const receptek = await response.json();
+
+            if (!receptek.length) {
+                div.innerHTML = '<p class="meta">Nincs találat.</p>';
+                return;
+            }
+
+            receptek.forEach((r, index) => {
+                const card = document.createElement("div");
+                card.className = "recept";
+                card.innerHTML = `
+                    <h3>${r.nev}</h3>
+                    <div class="meta">Idő: ${r.ido} perc · Nehézség: ${r.nehezseg}</div>
+                    <div><b>Hozzávalók:</b> ${r.hozzavalok.join(", ")}</div>
+                `;
+                card.onclick = () => mutasdReceptReszletek(r);
+                div.appendChild(card);
+            });
+        } catch (e) {
+            div.innerHTML = '<p class="meta">Hiba történt. Ellenőrizd a backend futását.</p>';
+        }
+    }
 
 </script>
 <script src="../backend/server.js"></script>
