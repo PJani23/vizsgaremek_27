@@ -1,4 +1,7 @@
 :root {
+    --bg: #f5f5f7;
+    --card-bg: #ffffff;
+    --text: #222;
     --muted: #666;
     --border: #ddd;
     --primary: #ff7b3e;
@@ -11,7 +14,7 @@
     --bg: #1e1e1e;
     --card-bg: #2a2a2a;
     --text: #f0f0f0;
-    --muted: #aaa;  
+    --muted: #aaa;
     --border: #444;
     --primary: #ff9a5c;
     --primary-dark: #ff7b3e;
@@ -24,8 +27,8 @@
 body {
     margin: 0;
     font-family: system-ui, sans-serif;
-    background: #f5f5f7;
-    color: #222;
+    background: var(--bg);
+    color: var(--text);
     transition: background 0.3s, color 0.3s;
 }
 
@@ -42,7 +45,7 @@ header {
     font-size: 24px;
     font-weight: 800;
     background: linear-gradient(90deg, var(--primary), var(--accent));
-    -webkit-background-clip: #222;
+    -webkit-background-clip: text;
     color: transparent;
 }
 
@@ -55,7 +58,7 @@ header {
 .btn {
     padding: 10px 14px;
     border-radius: 10px;
-    background: #ffffff;
+    background: var(--card-bg);
     border: 1px solid var(--border);
     cursor: pointer;
     font-size: 14px;
@@ -85,7 +88,7 @@ header {
 
 .hero p {
     margin: 0;
-    color: #666;
+    color: var(--muted);
     font-size: 15px;
 }
 
@@ -120,7 +123,7 @@ header {
 }
 
 .search-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 16px;
     padding: 20px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
@@ -130,7 +133,7 @@ header {
 label {
     font-size: 14px;
     font-weight: 600;
-    color: #666;
+    color: var(--muted);
 }
 
 .input-row {
@@ -146,8 +149,8 @@ input[type="text"] {
     font-size: 15px;
     border-radius: 10px;
     border: 1px solid var(--border);
-    background: #ffffff;
-    color: #222;
+    background: var(--card-bg);
+    color: var(--text);
 }
 
 button {
@@ -168,6 +171,14 @@ button:hover {
     background: var(--primary-dark);
     box-shadow: 0 4px 14px rgba(255,123,62,0.4);
 }
+
+#talalatok {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+}
+
 .recept {
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -181,13 +192,6 @@ button:hover {
     box-shadow: 0 4px 14px rgba(0,0,0,0.1);
 }
 
-#talalatok {
-    margin-top: 24px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 14px;
-}
-
 .categories {
     margin-top: 30px;
     display: grid;
@@ -196,7 +200,7 @@ button:hover {
 }
 
 .cat-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border: 1px solid var(--border);
     padding: 16px;
     border-radius: 12px;
@@ -218,7 +222,7 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 13px;
-    color: #666;
+    color: var(--muted);
 }
 
 /* MOBIL OPTIMALIZÁCIÓ */
