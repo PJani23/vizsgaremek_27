@@ -93,10 +93,11 @@
 
     function megjelenit() {
         const div = document.getElementById("talalatok");
+        const input = document.getElementById("hozzavalokInput");
         div.innerHTML = "";
-
         for (const e of json) {
-            div.innerHTML += `
+            if (e.hozzavalok.includes(input.value)) {
+                div.innerHTML += `
                 <div class="recept" onclick="mutasdReceptReszletek('${e.nev}')">
                     <h3>${e.nev}</h3>
                     <img src="${e.kep[0]}" alt="e.kep[1]">
@@ -104,6 +105,7 @@
                     <div><b>Hozzávalók:</b> ${e.hozzavalok.join(", ")}</div>
                 </div>
             `;
+            }
         }
     }
 
