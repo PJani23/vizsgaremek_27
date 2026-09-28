@@ -36,18 +36,8 @@ const json = JSON.parse(
     ]
   }
 ])
-const d =  document.getElementById("talalatok").innerHTML
-function rego() {
-    for (const a of json) {
-    `
-        <div class="recept">
-            <h2>${json[a].nev}</h2>
-            <img src="${json[a].kep}" alt="kep">
-            <p>${json[a].lepesek}</p>
-        </div>
-    `
-}
-}
+
+
 
 
 
