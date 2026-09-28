@@ -1,1 +1,48 @@
-nig
+CREATE TABLE hozzavalok (
+    id CHAR(3) PRIMARY KEY,
+    nev VARCHAR(40) NOT NULL
+);
+CREATE TABLE jellemzok (
+    id CHAR(3) PRIMARY KEY,
+    nev VARCHAR(40) NOT NULL
+);
+
+CREATE TABLE eszkozok (
+    id CHAR(3) PRIMARY KEY,
+    nev VARCHAR(40) NOT NULL
+);
+
+CREATE TABLE recept (
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    nev VARCHAR(100) NOT NULL,
+    ido INT,
+    nehezseg VARCHAR(10),
+    kep VARCHAR(255),
+    adag INT,
+    lepesek TEXT
+);
+
+CREATE TABLE recept_hozzavalo (
+    recept_id INT,
+    hozzavalo_id CHAR(3),
+    mennyiseg VARCHAR(50), 
+    PRIMARY KEY (recept_id, hozzavalo_id),
+    FOREIGN KEY (recept_id) REFERENCES recept(id) ON DELETE CASCADE,
+    FOREIGN KEY (hozzavalo_id) REFERENCES hozzavalok(id) ON DELETE CASCADE
+);
+
+CREATE TABLE recept_eszkoz (
+    recept_id INT,
+    eszkoz_id CHAR(3),
+    PRIMARY KEY (recept_id, eszkoz_id),
+    FOREIGN KEY (recept_id) REFERENCES recept(id) ON DELETE CASCADE,
+    FOREIGN KEY (eszkoz_id) REFERENCES eszkozok(id) ON DELETE CASCADE
+);
+
+CREATE TABLE recept_jellemzo (
+    recept_id INT,
+    jellemzo_id CHAR(3),
+    PRIMARY KEY (recept_id, jellemzo_id),
+    FOREIGN KEY (recept_id) REFERENCES recept(id) ON DELETE CASCADE,
+    FOREIGN KEY (jellemzo_id) REFERENCES jellemzok(id) ON DELETE CASCADE
+);
