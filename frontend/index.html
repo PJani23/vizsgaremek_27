@@ -129,8 +129,8 @@
     for (const e of json) {
         // Ellenőrizzük, hogy a recept hozzávalói tartalmazzák-e a keresett elemeket
         // (Pl. legalább az egyik keresett hozzávaló szerepel benne)
-        const talalat = keresett.some(k => 
-            e.hozzavalok.some(h => h.toLowerCase().includes(k))
+        const talalat = keresett.every(k => 
+            e.hozzavalok.every(h => h.toLowerCase().includes(k))
         );
 
         if (talalat) {
