@@ -290,7 +290,7 @@ footer {
 
 img {
     max-width: 90%;
-    max-height: 1%;
+    max-height: 50%;
     border-radius: 12px;
     border: 1px solid var(--border);
     display: block;
