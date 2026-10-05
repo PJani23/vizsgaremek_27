@@ -113,24 +113,18 @@
     function megjelenit() {
     const div = document.getElementById("talalatok");
     const input = document.getElementById("hozzavalokInput").value.toLowerCase();
-    
-    // Elemek tisztítása: kisbetűsítés, szóközök levágása és üres elemek kiszűrése
-    const keresett = input.split(',')
-                          .map(x => x.trim())
-                          .filter(x => x !== "");
+
+    const keresett = input.split(',').map(x => x.trim()).filter(x => x !== "");
 
     div.innerHTML = "";
 
-    // Ha nincs megadva semmi a keresőben, leállunk (vagy kiírhatjuk az összeset)
     if (keresett.length === 0) {
         return;
     }
 
     for (const e of json) {
-        // Ellenőrizzük, hogy a recept hozzávalói tartalmazzák-e a keresett elemeket
-        // (Pl. legalább az egyik keresett hozzávaló szerepel benne)
         const talalat = keresett.every(k => 
-            e.hozzavalok.every(h => h.toLowerCase().includes(k))
+            e.hozzavalok.some(h => h.toLowerCase().includes(k))
         );
 
         if (talalat) {
