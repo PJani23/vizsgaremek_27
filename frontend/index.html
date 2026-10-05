@@ -91,7 +91,7 @@
         }
     ];
 
-    function megjelenit() {
+    /*function megjelenit() {
         const div = document.getElementById("talalatok");
         const input = document.getElementById("hozzavalokInput").value.toLowerCase();
         const keresett = input.split(',').map(x =>x.trim()).filter(x=>x!=="")
@@ -108,7 +108,43 @@
             `;
             }
         }
+    }*/
+
+    function megjelenit() {
+    const div = document.getElementById("talalatok");
+    const input = document.getElementById("hozzavalokInput").value.toLowerCase();
+    
+    // Elemek tisztítása: kisbetűsítés, szóközök levágása és üres elemek kiszűrése
+    const keresett = input.split(',')
+                          .map(x => x.trim())
+                          .filter(x => x !== "");
+
+    div.innerHTML = "";
+
+    // Ha nincs megadva semmi a keresőben, leállunk (vagy kiírhatjuk az összeset)
+    if (keresett.length === 0) {
+        return;
     }
+
+    for (const e of json) {
+        // Ellenőrizzük, hogy a recept hozzávalói tartalmazzák-e a keresett elemeket
+        // (Pl. legalább az egyik keresett hozzávaló szerepel benne)
+        const talalat = keresett.some(k => 
+            e.hozzavalok.some(h => h.toLowerCase().includes(k))
+        );
+
+        if (talalat) {
+            div.innerHTML += `
+                <div class="recept" onclick="mutasdReceptReszletek('${e.nev}')">
+                    <h3>${e.nev}</h3>
+                    <img src="${e.kep[0]}" alt="${e.kep[1]}">
+                    <div class="meta">Idő: ${e.ido} perc · Nehézség: ${e.nehezseg}</div>
+                    <div><b>Hozzávalók:</b> ${e.hozzavalok.join(", ")}</div>
+                </div>
+            `;
+        }
+    }
+}
 
     function mutasdReceptReszletek(nev) {
         const recept = json.find(r => r.nev === nev);
