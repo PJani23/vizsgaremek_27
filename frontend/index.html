@@ -170,6 +170,44 @@
                 </ul>
             </div>
         `;
+        // Triggered when clicking the "Find Recipes" button
+async function searchRecipes() {
+  // Gather checked ingredient IDs
+  const selectedIngredients = Array.from(document.querySelectorAll('.ingredient-cb:checked'))
+                                   .map(cb => cb.value);
+
+  if (selectedIngredients.length === 0) {
+    alert("Please select at least one ingredient!");
+    return;
+  }
+
+  try {
+    // Send IDs to the Node.js backend
+    const response = await fetch('http://localhost:3000/api/find-recipes', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ingredients: selectedIngredients })
+    });
+
+    const recipes = await response.json();
+    displayRecipes(recipes); // Update UI
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+function displayRecipes(recipes) {
+  const container = document.getElementById('recipe-results');
+  container.innerHTML = ''; 
+
+  recipes.forEach(recipe => {
+    const div = document.createElement('div');
+    div.className = 'recipe-card';
+    div.innerHTML = `<h3>${recipe.nev}</h3><p>Time: ${recipe.ido} mins</p>`;
+    container.appendChild(div);
+  });
+}
+
     }
 </script>
 
