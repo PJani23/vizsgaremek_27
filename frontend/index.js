@@ -6,7 +6,7 @@ function toggleTheme() {
         document.getElementById("napocska").innerHTML="☀️ Mód váltás"
     }
 
-    const json = [
+    /*const json = [
         {
             "nev": "Rántotta",
             "kep": [
@@ -41,7 +41,7 @@ function toggleTheme() {
             ]
         }
     ];
-
+    */
     function megjelenit() {
     const div = document.getElementById("talalatok");
     const input = document.getElementById("hozzavalokInput").value.toLowerCase();
