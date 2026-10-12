@@ -1,9 +1,9 @@
 import { json } from './server.js';
 
 
-function toggleTheme() {
+document.getElementById("napocska").addEventListener("click", function() {
         document.documentElement.classList.toggle("dark");
-    }
+    })
 
     /*const json = [
         {
