@@ -246,7 +246,4 @@ function mutasdReceptReszletek(nev) {
             </ul>
         </div>
     `;
-    setTimeout(() => {
-        detailDiv.scrollIntoView({ behavior: 'smooth' });
-    }, 50);
 }
