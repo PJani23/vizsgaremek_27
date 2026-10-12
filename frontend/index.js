@@ -6,7 +6,7 @@ const json = [
   {
     "nev": "Rántotta",
     "kep": [
-        "",
+        "../images/rantotta.jpg",
         "rantotta"
     ],
     "ido": 10,
@@ -24,7 +24,7 @@ const json = [
   {
     "nev": "Palacsinta",
     "kep": [
-        "images/palacsinta.jpg",
+        "../images/palacsinta.jpg",
         "palacsinta"
     ],
     "ido": 25,
@@ -41,7 +41,7 @@ const json = [
   {
     "nev": "Paradicsomos tészta",
     "kep": [
-        "images/paradicsomosteszta.jpg",
+        "../images/paradicsomosteszta.jpg",
         "paradicsomosteszta"
     ],
     "ido": 20,
@@ -76,7 +76,7 @@ const json = [
   {
     "nev": "Sült krumpli",
     "kep": [
-        "images/sultkrumpli.jpg",
+        "../images/sultkrumpli.jpg",
         "sultkrumpli"
     ],
     "ido": 40,
@@ -93,7 +93,7 @@ const json = [
   {
     "nev": "Zöldségleves",
     "kep": [
-        "images/zoldsegleves.jpg",
+        "../images/zoldsegleves.jpg",
         "zoldsegleves"
     ],
     "ido": 45,
@@ -112,7 +112,7 @@ const json = [
   {
     "nev": "Tejfölös uborkasaláta",
     "kep": [
-        "images/uborkasalata.jpg",
+        "../images/uborkasalata.jpg",
         "tejfolosuborkasalata"
     ],
     "ido": 10,
@@ -130,7 +130,7 @@ const json = [
   {
     "nev": "Tojásos nokedli",
     "kep": [
-        "images/tojasosnokedli.jpg",
+        "../images/tojasosnokedli.jpg",
         "tojasosnokedli"
     ],
     "ido": 30,
@@ -148,7 +148,7 @@ const json = [
   {
     "nev": "Gulyásleves",
     "kep": [
-        "images/gulyasleves.jpg",
+        "../images/gulyasleves.jpg",
         "gulyasleves"
     ],
     "ido": 90,
@@ -167,7 +167,7 @@ const json = [
   {
     "nev": "Csirkepaprikás",
     "kep": [
-        "images/csikepaprikas.jpg",
+        "../images/csikepaprikas.jpg",
         "csirkepaprikas"
     ],
     "ido": 60,
@@ -223,7 +223,7 @@ function mutasdReceptReszletek(nev) {
     
     detailDiv.innerHTML = `
         <div class="detail-header">
-            <img src="${recept.kep}" alt="${recept.nev}">
+            <img src="${recept.kep[0]}" alt="${recept.kep[1]}">
             <div class="detail-info">
                 <h2>${recept.nev}</h2>
                 <div class="meta">Elkészítési idő: ${recept.ido} perc</div>
