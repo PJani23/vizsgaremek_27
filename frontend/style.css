@@ -295,3 +295,7 @@ img {
     border: 1px solid var(--border);
     display: block;
 }
+a{
+    color:var(--text);
+    text-decoration: none;
+}
