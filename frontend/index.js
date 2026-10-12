@@ -14,7 +14,8 @@ document.getElementById("napocska").addEventListener("click", function() {
             return;
         }
         
-        import { json } from '../backend/server.js';
+        
+        
         for (const e of json) {
             const talalat = keresett.every(k => e.hozzavalok.some(h => h.toLowerCase().includes(k))
         );
