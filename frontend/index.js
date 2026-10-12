@@ -6,7 +6,7 @@ const json = [
   {
     "nev": "Rántotta",
     "kep": [
-        "../images/rantotta.jpg",
+        "",
         "rantotta"
     ],
     "ido": 10,
@@ -59,7 +59,7 @@ const json = [
   {
     "nev": "Bundás kenyér",
     "kep": [
-        "images/bundaskenyer.jpg",
+        "../image/bundaskenyer.jpg",
         "bundaskenyer"
     ],
     "ido": 15,
@@ -204,7 +204,7 @@ function megjelenit() {
             div.innerHTML += `
             <div class="recept" onclick="mutasdReceptReszletek('${e.nev}')">
                 <h3>${e.nev}</h3>
-                <img src="${e.kep}" alt="${e.nev}">
+                <img src="${e.kep[0]}" alt="${e.kep[1]}">
                 <div class="meta">Idő: ${e.ido} perc · Nehézség: ${e.nehezseg}</div>
                 <div><b>Hozzávalók:</b> ${e.hozzavalok.join(", ")}</div>
             </div>
