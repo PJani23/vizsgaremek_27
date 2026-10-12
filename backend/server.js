@@ -1,4 +1,4 @@
-const json = JSON.parse(
+export const json = JSON.parse(
 [
   {
     "nev": "Rántotta",
