@@ -1,3 +1,6 @@
+import { json } from './server.js';
+
+
 function toggleTheme() {
         document.documentElement.classList.toggle("dark");
         document.getElementById("napocska").innerHTML="☀️ Mód váltás"
