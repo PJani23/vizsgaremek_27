@@ -198,17 +198,17 @@ function megjelenit() {
     }
     
     for (const e of json) {
-        const talalat = keresett.every(k => e.hozzavalok.some(h => h.toLowerCase() === k));
+        const talalat = keresett.every(k => e.hozzavalok.some(h => h.toLowerCase()=== k));
     
         if (talalat) {
-            div.innerHTML += `
-            <a href="#receptReszletek"><div class="recept" onclick="mutasdReceptReszletek('${e.nev}')">
-                <h3>${e.nev}</h3>
-                <img src="${e.kep[0]}" alt="${e.kep[1]}">
-                <div class="meta">Idő: ${e.ido} perc · Nehézség: ${e.nehezseg}</div>
-                <div><b>Hozzávalók:</b> ${e.hozzavalok.join(", ")}</div>
-            </div></a>
-            `;
+        div.innerHTML += `
+        <a href="#receptReszletek" class="recept" onclick="mutasdReceptReszletek('${e.nev}')">
+            <h3>${e.nev}</h3>
+            <img src="${e.kep}" alt="${e.nev}">
+            <div class="meta">Idő: ${e.ido} perc · Nehézség: ${e.nehezseg}</div>
+            <div><b>Hozzávalók:</b> ${e.hozzavalok.join(", ")}</div>
+        </a>
+        `;
         }
     }
 }
