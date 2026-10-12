@@ -1,7 +1,7 @@
 document.getElementById("napocska").addEventListener("click", function() {
     document.documentElement.classList.toggle("dark");
 })
-const json = JSON.parse(
+const json = 
 [
   {
     "nev": "Rántotta",
@@ -154,7 +154,7 @@ const json = JSON.parse(
     ]
   }
 ]
-)
+
 
 
     function megjelenit() {
