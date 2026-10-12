@@ -11,7 +11,7 @@
 <header>
     <div class="logo">ReceptKereső</div>
     <div class="header-buttons">
-        <button class="btn" onclick="toggleTheme()">🌙 Mód váltás</button>
+        <button class="btn" onclick="toggleTheme()" id="napocska">🌙 Mód váltás</button>
         <button class="btn">Kedvencek</button>
         <button class="btn">Bevásárlólista</button>
     </div>
@@ -53,6 +53,7 @@
 <script>
     function toggleTheme() {
         document.documentElement.classList.toggle("dark");
+        document.getElementById("napocska").innerHTML="☀️ Mód váltás"
     }
 
     const json = [
