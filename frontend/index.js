@@ -198,7 +198,7 @@ function megjelenit() {
     }
     
     for (const e of json) {
-        const talalat = keresett.every(k => e.hozzavalok.some(h => h.toLowerCase().includes(k)));
+        const talalat = keresett.every(k => e.hozzavalok.some(h => h.toLowerCase()===k));
     
         if (talalat) {
             div.innerHTML += `
