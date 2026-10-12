@@ -155,6 +155,8 @@ const json = JSON.parse(
   }
 ]
 )
+
+
     function megjelenit() {
         const div = document.getElementById("talalatok");
         const input = document.getElementById("hozzavalokInput").value.toLowerCase();
