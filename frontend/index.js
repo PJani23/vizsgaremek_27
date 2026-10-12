@@ -6,7 +6,7 @@ const json = [
   {
     "nev": "Rántotta",
     "kep": [
-        "images/rantotta.jpg",
+        "../images/rantotta.jpg",
         "rantotta"
     ],
     "ido": 10,
