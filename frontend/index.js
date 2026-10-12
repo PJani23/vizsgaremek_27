@@ -1,5 +1,3 @@
-
-
 document.getElementById("napocska").addEventListener("click", function() {
     document.documentElement.classList.toggle("dark");
 })
