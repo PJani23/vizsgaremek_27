@@ -5,7 +5,10 @@ document.getElementById("napocska").addEventListener("click", function() {
 const json = [
   {
     "nev": "Rántotta",
-    "kep": "images/rantotta.jpg",
+    "kep": [
+        "images/rantotta.jpg",
+        "rantotta"
+    ],
     "ido": 10,
     "nehezseg": "könnyű",
     "adag": 1,
@@ -20,7 +23,10 @@ const json = [
   },
   {
     "nev": "Palacsinta",
-    "kep": "images/palacsinta.jpg",
+    "kep": [
+        "images/palacsinta.jpg",
+        "palacsinta"
+    ],
     "ido": 25,
     "nehezseg": "közepes",
     "adag": 4,
@@ -34,7 +40,10 @@ const json = [
   },
   {
     "nev": "Paradicsomos tészta",
-    "kep": "images/paradicsomos_teszta.jpg",
+    "kep": [
+        "images/paradicsomosteszta.jpg",
+        "paradicsomosteszta"
+    ],
     "ido": 20,
     "nehezseg": "könnyű",
     "adag": 2,
@@ -49,7 +58,10 @@ const json = [
   },
   {
     "nev": "Bundás kenyér",
-    "kep": "images/bundas_kenyer.jpg",
+    "kep": [
+        "images/bundaskenyer.jpg",
+        "bundaskenyer"
+    ],
     "ido": 15,
     "nehezseg": "könnyű",
     "adag": 2,
@@ -63,7 +75,10 @@ const json = [
   },
   {
     "nev": "Sült krumpli",
-    "kep": "images/sult_krumpli.jpg",
+    "kep": [
+        "images/sultkrumpli.jpg",
+        "sultkrumpli"
+    ],
     "ido": 40,
     "nehezseg": "könnyű",
     "adag": 2,
@@ -77,7 +92,10 @@ const json = [
   },
   {
     "nev": "Zöldségleves",
-    "kep": "images/zoldsegleves.jpg",
+    "kep": [
+        "images/zoldsegleves.jpg",
+        "zoldsegleves"
+    ],
     "ido": 45,
     "nehezseg": "könnyű",
     "adag": 4,
@@ -93,7 +111,10 @@ const json = [
   },
   {
     "nev": "Tejfölös uborkasaláta",
-    "kep": "images/uborkasalata.jpg",
+    "kep": [
+        "images/uborkasalata.jpg",
+        "tejfolosuborkasalata"
+    ],
     "ido": 10,
     "nehezseg": "könnyű",
     "adag": 2,
@@ -108,7 +129,10 @@ const json = [
   },
   {
     "nev": "Tojásos nokedli",
-    "kep": "images/tojasos_nokedli.jpg",
+    "kep": [
+        "images/tojasosnokedli.jpg",
+        "tojasosnokedli"
+    ],
     "ido": 30,
     "nehezseg": "közepes",
     "adag": 3,
@@ -123,7 +147,10 @@ const json = [
   },
   {
     "nev": "Gulyásleves",
-    "kep": "images/gulyasleves.jpg",
+    "kep": [
+        "images/gulyasleves.jpg",
+        "gulyasleves"
+    ],
     "ido": 90,
     "nehezseg": "nehéz",
     "adag": 4,
@@ -139,7 +166,10 @@ const json = [
   },
   {
     "nev": "Csirkepaprikás",
-    "kep": "images/csirkepaprikas.jpg",
+    "kep": [
+        "images/csikepaprikas.jpg",
+        "csirkepaprikas"
+    ],
     "ido": 60,
     "nehezseg": "közepes",
     "adag": 4,
