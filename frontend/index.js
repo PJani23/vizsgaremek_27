@@ -301,6 +301,7 @@ const frissit = (id) => {
 const olcso = () => {
   if (jellem.includes("Olcso")) {
     jellem.delete("Olcso")
+    console.log("berakva")
   }
   else{
     jellem.push("Olcso")
