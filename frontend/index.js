@@ -218,11 +218,12 @@ let json2 = [];
 let jellem = [];
 function megjelenit() {
     const div = document.getElementById("talalatok");
-    const input = document.getElementById("hozzavalokInput").value.toLowerCase();
+    const inputElement = document.getElementById("hozzavalokInput")
+    const input = inputElement ? inputElement.value.toLowerCase() : "";
     const keresett = input.split(',').map(x => x.trim()).filter(x => x !== "");  
     div.innerHTML = "";
     
-    if (keresett.length === 0) {
+    if (keresett.length === 0 && jellem.length === 0) {
         return;
     }
     
