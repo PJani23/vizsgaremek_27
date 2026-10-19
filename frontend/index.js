@@ -300,7 +300,7 @@ const frissit = (id) => {
 
 const olcso = () => {
   if (jellem.includes("olcso")) {
-    jellem.remove(jellem.findIndex("olcso"))
+    jellem.delete("olcso")
   }
   else{
     jellem.push("olcso")
