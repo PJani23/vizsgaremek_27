@@ -299,11 +299,11 @@ const frissit = (id) => {
 
 
 const olcso = () => {
-  if (jellem.includes("olcso")) {
-    jellem.delete("olcso")
+  if (jellem.includes("Olcso")) {
+    jellem.delete("Olcso")
   }
   else{
-    jellem.push("olcso")
+    jellem.push("Olcso")
   }
   frissit(1)
 }
