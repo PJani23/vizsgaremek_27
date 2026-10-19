@@ -19,6 +19,9 @@ const json = [
       "Olajat hevítünk a serpenyőben.",
       "A tojást beleöntjük és folyamatosan keverjük.",
       "3-4 perc alatt készre sütjük."
+    ],
+    "jellemzok": [
+      "Olcso", "Gyors"
     ]
   },
   {
@@ -36,6 +39,9 @@ const json = [
       "Hozzáadunk egy csipet sót.",
       "A tésztát 10 percig pihentetjük.",
       "Olajjal kikent serpenyőben kisütjük a palacsintákat."
+    ],
+    "jellemzok": [
+      "Desszert"
     ]
   },
   {
@@ -54,6 +60,9 @@ const json = [
       "Hozzáadjuk a paradicsomszószt.",
       "Sózzuk, borsozzuk.",
       "A leszűrt tésztát összekeverjük a szósszal."
+    ],
+    "jellemzok": [
+      "Teszta"
     ]
   },
   {
@@ -71,6 +80,9 @@ const json = [
       "Sózzuk.",
       "A kenyérszeleteket belemártjuk.",
       "Olajban aranybarnára sütjük."
+    ],
+    "jellemzok": [
+      "Gyors","Olcso"
     ]
   },
   {
@@ -88,6 +100,9 @@ const json = [
       "Olajjal meglocsoljuk.",
       "Sózzuk.",
       "200°C-on 30-35 percig sütjük."
+    ],
+    "jellemzok": [
+      "Olcso"
     ]
   },
   {
@@ -107,6 +122,9 @@ const json = [
       "Felöntjük vízzel.",
       "Fűszerezzük.",
       "40 percig főzzük."
+    ],
+    "jellemzok": [
+      "Egeszseges"
     ]
   },
   {
@@ -125,6 +143,9 @@ const json = [
       "A tejfölt összekeverjük a fokhagymával.",
       "Az uborkát kinyomkodjuk.",
       "Összekeverjük a tejföllel."
+    ],
+    "jellemzok": [
+      "Egeszseges", "Gyors", "Olcso"
     ]
   },
   {
@@ -143,6 +164,9 @@ const json = [
       "A nokedlit kifőzzük.",
       "A tojásokat felverjük és ráöntjük.",
       "Összesütjük."
+    ],
+    "jellemzok": [
+      "Olcso"
     ]
   },
   {
@@ -162,6 +186,9 @@ const json = [
       "Felöntjük vízzel.",
       "Hozzáadjuk a zöldségeket.",
       "1 órán át főzzük."
+    ],
+    "jellemzok": [
+      "Egeszseges"
     ]
   },
   {
@@ -181,6 +208,9 @@ const json = [
       "Felöntjük vízzel.",
       "Puhára főzzük.",
       "Tejföllel behabarjuk."
+    ],
+    "jellemzok": [
+      "Egeszseges"
     ]
   }
 ];
