@@ -277,3 +277,4 @@ function mutasdReceptReszletek(nev) {
         </div>
     `;
 }
+const olcso = () => {console.log("niggeer")}
