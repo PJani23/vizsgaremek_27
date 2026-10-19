@@ -228,7 +228,7 @@ function megjelenit() {
     }
     
     for (const e of json2) {
-        const talalat = keresett.every(k => e.hozzavalok.some(h => h.toLowerCase() === k));
+        const talalat = keresett.length===0 || keresett.every(k => e.hozzavalok.some(h=>h.toLowerCase() === k));
     
         if (talalat) {
         div.innerHTML += `
@@ -301,10 +301,8 @@ const frissit = (id) => {
 const olcso = () => {
   if (jellem.includes("Olcso")) {
     jellem = jellem.filter(i => i !== "Olcso");
-    console.log("kivéve");
   } else {
     jellem.push("Olcso");
-    console.log("berakva");
   }
   
   frissit(jellem.length > 0 ? 1 : 0);
