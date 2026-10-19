@@ -219,9 +219,7 @@ let jellem = [];
 function megjelenit() {
     const div = document.getElementById("talalatok");
     const input = document.getElementById("hozzavalokInput").value.toLowerCase();
-    
-    const keresett = input.split(',').map(x => x.trim()).filter(x => x !== "");
-    
+    const keresett = input.split(',').map(x => x.trim()).filter(x => x !== "");  
     div.innerHTML = "";
     
     if (keresett.length === 0) {
@@ -279,14 +277,14 @@ function mutasdReceptReszletek(nev) {
     `;
 }
 const frissit = (id) => {
-  if (id) {
+  if (id && jellem.length > 0) {
     json2 = [];
-    for (const e of jellem) {
-      for (const n of json) {
-        if (n.jellemzok && n.jellemzok.includes(e)) {
-          if (!json2.includes(n)) {
-            json2.push(n);
-          }
+    for (const n of json) {
+      const talalhatoMind = jellem.every(j => n.jellemzok && n.jellemzok.includes(j));
+
+      if (talalhatoMind) {
+        if (!json2.includes(n)) {
+          json2.push(n);
         }
       }
     }
@@ -301,11 +299,12 @@ const frissit = (id) => {
 
 const olcso = () => {
   if (jellem.includes("Olcso")) {
-    jellem = jellem.filter(i => i !== "Olcso")
+    jellem = jellem.filter(i => i !== "Olcso");
+    console.log("kivéve");
+  } else {
+    jellem.push("Olcso");
+    console.log("berakva");
   }
-  else{
-    jellem.push("Olcso")
-  }
-  frissit(1)
+  
+  frissit(jellem.length > 0 ? 1 : 0);
 }
-frissit(0)
