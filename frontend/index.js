@@ -280,19 +280,20 @@ function mutasdReceptReszletek(nev) {
 }
 const frissit = (id) => {
   if (id) {
-    json2 = []
+    json2 = [];
     for (const e of jellem) {
       for (const n of json) {
-        if (n.jellemzok.includes(e)) {
-          json2.push(json[n])
+        if (n.jellemzok && n.jellemzok.includes(e)) {
+          if (!json2.includes(n)) {
+            json2.push(n);
+          }
         }
       }
     }
+  } else {
+    json2 = json;
   }
-  else{
-    json2 = json
-  }
-  megjelenit()
+  megjelenit();
 }
 
 
