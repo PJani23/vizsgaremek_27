@@ -228,7 +228,7 @@ function megjelenit() {
         return;
     }
     
-    for (const e of json) {
+    for (const e of json2) {
         const talalat = keresett.every(k => e.hozzavalok.some(h => h.toLowerCase() === k));
     
         if (talalat) {
@@ -292,6 +292,7 @@ const frissit = (id) => {
   else{
     json2 = json
   }
+  megjelenit()
 }
 
 
