@@ -214,7 +214,8 @@ const json = [
     ]
   }
 ];
-
+let json2 = [];
+let jellem = [];
 function megjelenit() {
     const div = document.getElementById("talalatok");
     const input = document.getElementById("hozzavalokInput").value.toLowerCase();
@@ -277,4 +278,32 @@ function mutasdReceptReszletek(nev) {
         </div>
     `;
 }
-const olcso = () => {console.log("niggeer")}
+const frissit = (id) => {
+  if (id) {
+    json2 = []
+    for (const e of jellem) {
+      for (const n of json) {
+        if (n.jellemzok.includes(e)) {
+          json2.push(json[n])
+        }
+      }
+    }
+  }
+  else{
+    json2 = json
+  }
+}
+
+
+
+
+const olcso = () => {
+  if (jellem.includes("olcso")) {
+    jellem.remove("olcso")
+  }
+  else{
+    jellem.push("olcso")
+  }
+  frissit(1)
+}
+frissit(0)
