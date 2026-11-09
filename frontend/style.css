@@ -113,6 +113,17 @@ header {
     transition: transform 0.2s, box-shadow 0.3s;
 }
 
+.quick-btn.toggle {
+    padding: 12px 16px;
+    background: black;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
 .quick-btn:hover {
     transform: scale(1.08);
     box-shadow: 0 4px 14px rgba(62,139,255,0.5);

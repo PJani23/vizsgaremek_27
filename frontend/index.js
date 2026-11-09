@@ -304,6 +304,6 @@ const olcso = () => {
   } else {
     jellem.push("Olcso");
   }
-  
+  document.documentElement.classList.toggle("toggle");
   frissit(jellem.length > 0 ? 1 : 0);
 }
