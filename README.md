@@ -47,4 +47,4 @@ részletes receptnézet megjelenítése
 
 dark mode támogatás
 
-A frontend a backendhez fetch kérésekkel kapcsolódik.
+http://localhost:3000/
