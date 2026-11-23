@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Receptkereső</title>
+    <meta name="description" content="Keress recepteket az otthon található hozzávalóid alapján.">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./index.js" defer></script>
+</head>
+<body>
+<header>
+    <div class="logo">ReceptKereső</div>
+    <nav class="header-buttons" aria-label="Főmenü">
+        <button class="btn" type="button" id="napocska">🌙 Sötét mód</button>
+        <button class="btn" type="button" id="kedvencekGomb">♡ Kedvencek</button>
+        <button class="btn" type="button" id="bevasarlasGomb">🛒 Bevásárlólista</button>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Mit főzzünk ma?</h1>
+    <p>Add meg az otthon található hozzávalókat, és megmutatjuk, milyen recepteket készíthetsz el.</p>
+    <div class="quick-buttons" aria-label="Receptkategóriák">
+        <button class="quick-btn" type="button" data-jellemzo="gyors" aria-pressed="false">Gyors receptek</button>
+        <button class="quick-btn" type="button" data-jellemzo="teszta" aria-pressed="false">Tészták</button>
+        <button class="quick-btn" type="button" data-jellemzo="egeszseges" aria-pressed="false">Egészséges</button>
+        <button class="quick-btn" type="button" data-jellemzo="desszert" aria-pressed="false">Desszertek</button>
+        <button class="quick-btn" type="button" data-jellemzo="olcso" aria-pressed="false">Olcsó ételek</button>
+    </div>
+</section>
+
+<main class="container">
+    <section class="search-card" aria-labelledby="keresoCim">
+        <h2 id="keresoCim">Receptkeresés</h2>
+        <form id="keresoUrlap">
+            <label for="hozzavalokInput">Hozzávalók (vesszővel elválasztva)</label>
+            <div class="input-row">
+                <input id="hozzavalokInput" type="text" placeholder="például: tojás, liszt, tej" autocomplete="off">
+                <button type="submit">Keresés</button>
+            </div>
+            <label class="checkbox-sor" for="csakElkeszitheto">
+                <input type="checkbox" id="csakElkeszitheto">
+                Csak azokat mutasd, amelyekhez minden hozzávaló megvan
+            </label>
+        </form>
+        <p id="keresesAllapot" class="allapot-szoveg" role="status" aria-live="polite"></p>
+        <div id="talalatok"></div>
+    </section>
+
+    <section id="receptReszletek" class="detail-card" aria-label="Recept részletei" hidden></section>
+
+    <section id="bevasarloPanel" class="detail-card" aria-labelledby="bevasarloCim" hidden>
+        <div class="panel-fejlec">
+            <h2 id="bevasarloCim">Bevásárlólista</h2>
+            <button class="btn kis-gomb" id="listaBezar" type="button">Bezárás</button>
+        </div>
+        <form id="listaUrlap" class="input-row">
+            <label class="csak-olvaso" for="ujTetel">Új bevásárlólista-tétel</label>
+            <input id="ujTetel" type="text" placeholder="Új hozzávaló" required maxlength="80">
+            <button type="submit">Hozzáadás</button>
+        </form>
+        <ul id="bevasarloTetelek" class="bevasarlo-tetelek"></ul>
+        <p class="allapot-szoveg" id="uresLista"></p>
+    </section>
+</main>
+
+<footer>Receptkereső – 2026 · Az adatok SQLite-adatbázisból érkeznek.</footer>
+</body>
+</html>

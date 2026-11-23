@@ -1,0 +1,362 @@
+:root {
+    --bg: #f5f5f7;
+    --card-bg: #ffffff;
+    --text: #222;
+    --muted: #666;
+    --border: #ddd;
+    --primary: #ff7b3e;
+    --primary-dark: #e0662f;
+    --accent: #3e8bff;
+    --btn-text: #222;
+}
+
+:root.dark {
+    --bg: #1e1e1e;
+    --card-bg: #2a2a2a;
+    --text: #f0f0f0;
+    --muted: #aaa;
+    --border: #444;
+    --primary: #ff9a5c;
+    --primary-dark: #ff7b3e;
+    --accent: #6aa3ff;
+    --btn-text: #fff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+}
+
+header {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--btn-text);
+    transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.btn:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,123,62,0.4);
+}
+
+.hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    text-align: center;
+}
+
+.hero h1 {
+    margin: 0 0 10px;
+    font-size: 30px;
+}
+
+.hero p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.quick-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.quick-btn {
+    padding: 12px 16px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.quick-btn.toggle {
+    padding: 12px 16px;
+    background: black;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.quick-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 14px rgba(62,139,255,0.5);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.search-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border: 1px solid var(--border);
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text);
+}
+
+button {
+    padding: 12px 18px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.3s;
+    width: 100%;
+    max-width: 180px;
+}
+
+button:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 4px 14px rgba(255,123,62,0.4);
+}
+
+#talalatok {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+}
+
+.recept {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 14px;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.recept:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+.categories {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+}
+
+.cat-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.3s, color 0.3s;
+    color: var(--btn-text);
+}
+
+.cat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    background: var(--primary);
+    color: #fff;
+}
+
+.detail-card {
+    margin-top: 30px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.detail-header {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.detail-header img {
+    width: 220px;
+    max-width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.detail-info h2 {
+    margin: 0 0 8px;
+}
+
+.detail-section {
+    margin-top: 16px;
+}
+
+.detail-section h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+.detail-section ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.detail-section li {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* MOBIL */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 26px;
+    }
+    .quick-btn {
+        width: 100%;
+        text-align: center;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+img {
+    max-width: 90%;
+    max-height: 40%;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    display: block;
+}
+a{
+    color:var(--text);
+    text-decoration: none;
+}
+/* A javított oldalon a meglévő gombok és panelek is működnek. */
+[hidden] { display: none !important; }
+.search-card h2 { margin: 0 0 16px; font-size: 20px; }
+.checkbox-sor { display: flex; gap: 9px; align-items: center; margin-top: 14px; cursor: pointer; font-weight: 400; }
+.checkbox-sor input { width: 17px; height: 17px; accent-color: var(--primary); }
+.allapot-szoveg { margin: 16px 0 0; color: var(--muted); font-size: 14px; }
+.quick-btn { width: auto; max-width: none; border: 2px solid transparent; padding: 12px 16px; }
+.quick-btn.toggle, .quick-btn[aria-pressed="true"] { background: var(--primary); box-shadow: 0 0 0 2px var(--border); }
+.header-buttons .btn { width: auto; max-width: none; color: var(--text); }
+.header-buttons .btn.kivalasztott { background: var(--primary); color: #fff; }
+.recept { display: flex; flex-direction: column; min-width: 0; }
+.recept h3 { margin: 12px 0 5px; font-size: 18px; }
+.recept-kep { width: 100%; max-width: 100%; height: 155px; max-height: none; object-fit: cover; border: 0; }
+.recept .meta { margin: 4px 0; color: var(--muted); font-size: 13px; }
+.kartyahozzavalok { font-size: 13px; line-height: 1.5; margin: 8px 0; flex: 1; color: var(--text); }
+.kartya-muveletek { display: flex; gap: 8px; margin-top: 8px; }
+.kartya-muveletek button { width: auto; max-width: none; }
+.kartya-muveletek .reszlet-gomb { flex: 1; }
+.kartya-muveletek .kedvenc-kapcsolo { flex: 0 0 46px; background: var(--card-bg); border: 1px solid var(--border); color: var(--primary-dark); font-size: 23px; padding: 7px; }
+.kartya-muveletek .kedvenc-kapcsolo:hover { color: #fff; background: var(--primary); }
+.siker { color: #168246; font-weight: 650; }
+.hiany { color: var(--primary-dark); font-weight: 650; }
+.dark .siker { color: #80dfaa; }
+.dark .hiany { color: #ffad77; }
+.panel-fejlec { display: flex; justify-content: space-between; gap: 14px; align-items: center; margin-bottom: 16px; }
+.panel-fejlec h2 { margin: 0; }
+button.kis-gomb { background: var(--card-bg); border: 1px solid var(--border); color: var(--text); font-size: 13px; font-weight: 600; width: auto; max-width: none; padding: 8px 12px; }
+button.kis-gomb:hover { background: var(--primary); color: #fff; }
+.detail-header { margin-top: 14px; }
+.detail-header img { width: 280px; height: 190px; max-width: 100%; max-height: none; object-fit: cover; }
+.detail-info .meta { color: var(--muted); margin: 0 0 9px; }
+.detail-section { margin-top: 24px; }
+.detail-section li { margin-bottom: 8px; line-height: 1.55; }
+.detail-section ol { padding-left: 22px; }
+.detail-section button { margin-top: 12px; max-width: none; width: auto; }
+.detail-info button { width: auto; max-width: none; }
+.bevasarlo-tetelek { list-style: none; padding: 0; margin: 18px 0 0; }
+.bevasarlo-tetelek li { padding: 9px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.csak-olvaso { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+#talalatok { grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+@media (max-width: 600px) {
+    .header-buttons { width: 100%; }
+    .header-buttons .btn { flex: 1; min-width: 110px; }
+    .hero { padding: 24px 15px; }
+    .container { padding: 12px; }
+    .input-row { flex-direction: column; }
+    .input-row input, .input-row button { width: 100%; max-width: none; }
+    .quick-btn { width: auto; flex: 1 1 140px; text-align: center; }
+    .detail-header img { width: 100%; }
+}
